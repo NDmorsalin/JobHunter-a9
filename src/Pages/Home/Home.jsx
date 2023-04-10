@@ -7,6 +7,7 @@ import c3 from "../../assets/Icons/c3.png";
 import c4 from "../../assets/Icons/c4.png";
 import JobCategory from "../../Components/JobCategory/JobCategory";
 import { useLoaderData } from "react-router-dom";
+import JobCard from "../../Components/JobCard/JobCard";
 
 const Home = () => {
   const { jobsData, categories } = useLoaderData()
@@ -36,8 +37,8 @@ const Home = () => {
         subtitle="Explore thousands of job opportunities with all the information you need. Its your future"
       >
         <div className="grid md:grid-cols-2 gap-4">
-          {currentJobs.map((ctg) => (
-            <JobCategory key={ctg.title} category={ctg} />
+          {currentJobs.map((job) => (
+            <JobCard key={job.id} job={job} />
           ))}
         </div>
         <div className="text-center">
