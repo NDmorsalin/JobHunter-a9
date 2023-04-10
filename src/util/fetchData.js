@@ -12,5 +12,13 @@ const homeData = async () => {
     return { jobsData, categories }
 }
 
+const jobDetails = async ({ params }) => {
+    const jobsData = await fetchData('/jobs.json')
+    const { jobs } = jobsData
+    const singleJob = jobs.find(job => `${job.id}` === params.jobId)
+    // console.log(singleJob,jobs, params.jobId);
+    return { singleJob }
+}
 
-export { homeData }
+
+export { homeData, jobDetails }

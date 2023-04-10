@@ -1,6 +1,7 @@
 import React from "react";
 import locationIcon from "../../assets/Icons/Location Icon.png";
 import salaryIcon from "../../assets/Icons/Frame.png";
+import { Link } from "react-router-dom";
 
 const JobCard = ({ job }) => {
   return (
@@ -28,7 +29,13 @@ const JobCard = ({ job }) => {
           <p className="text-slate-500">Salary: {job.salary}</p>
         </div>
       </div>
-      <button className="bg-gradients py-3 px-6 my-8  rounded text-white font-semibold text-lg">View Details</button>
+      {console.log()}
+      <Link
+        to={`/${job.id}`}
+        className="bg-gradients py-3 px-6 my-8  rounded text-white font-semibold text-lg"
+      >
+        View Details
+      </Link>
     </div>
   );
 };
