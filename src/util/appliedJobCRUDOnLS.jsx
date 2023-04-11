@@ -17,9 +17,10 @@ const addJobIdOnLS = (jobId) => {
   if (!isAdded) {
     jobsId.push(jobId);
     localStorage.setItem("jobsId", JSON.stringify(jobsId));
-    
+
     return isAdded;
   }
+
   return isAdded;
 };
 

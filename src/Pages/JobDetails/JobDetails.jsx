@@ -8,10 +8,17 @@ import phoneIcon from "../../assets/Icons/Frame-2.png";
 import emailIcon from "../../assets/Icons/Frame-3.png";
 import PagesHeader from "../../Components/PagesHeader/PagesHeader";
 import { addJobIdOnLS } from "../../util/appliedJobCRUDOnLS";
+import { toast } from "react-toastify";
 
 const JobDetails = () => {
   const singleJob = useLoaderData();
-  console.log(singleJob);
+
+  const handelAppliedJob = (jobId) => {
+    const isAdded = addJobIdOnLS(jobId);
+    if (isAdded) {
+      toast("Job already added please see on your applied list");
+    }
+  };
   return (
     <>
       <PagesHeader pageTitle="Job Details" />
@@ -85,7 +92,7 @@ const JobDetails = () => {
             </div>
           </div>
           <button
-            onClick={() => addJobIdOnLS(singleJob.id)}
+            onClick={() => handelAppliedJob(singleJob.id)}
             className="bg-gradients py-3 px-6 rounded text-white font-semibold text-lg block w-full mt-4"
           >
             Apply Now
