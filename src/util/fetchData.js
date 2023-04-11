@@ -15,7 +15,7 @@ const homeData = async () => {
 const jobDetails = async ({ params }) => {
     const jobsData = await fetchData('/jobs.json')
     const { jobs } = jobsData
-    const singleJob = jobs.find(job => `${job.id}` === params.jobId)
+    const singleJob = jobs.find(job => `${job.id}` === params.id)
     // console.log(singleJob,jobs, params.jobId);
     return singleJob 
 }

@@ -35,7 +35,7 @@ const JobCard = ({ job, children }) => {
         </div>
         <div className="flex items-center justify-between">
           <Link
-            to={`/jobs/${job.id}`}
+            to={`/job/${job.id}`}
             className="bg-gradients py-3 px-6 my-8 block w-fit  rounded text-white font-semibold text-lg"
           >
             View Details
