@@ -6,6 +6,9 @@ import Error from "../Pages/Error/Error";
 import Home from "../Pages/Home/Home";
 import { homeData, jobDetails } from "../util/fetchData";
 import JobDetails from "../Pages/JobDetails/JobDetails";
+import Statistic from "../Pages/Statistics/Statistic";
+import AppliedJob from "../Pages/ApplidedJob/AppliedJob";
+import Blog from "../Pages/Blog/Blog";
 
 const routes = createBrowserRouter([
   {
@@ -19,13 +22,21 @@ const routes = createBrowserRouter([
         loader: homeData,
       },
       {
-        path: "/:jobId",
+        path: "/jobs/:jobId",
         element: <JobDetails />,
         loader: jobDetails,
       },
       {
         path: "statistics",
-        element: <Home />,
+        element: <Statistic />,
+      },
+      {
+        path: "appliedjobs",
+        element: <AppliedJob />,
+      },
+      {
+        path: "blog",
+        element: <Blog />,
       },
     ],
   },

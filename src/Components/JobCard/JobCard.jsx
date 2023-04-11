@@ -11,6 +11,7 @@ const JobCard = ({ job }) => {
       </div>
       <h4 className="text-2xl font-bold text-slate-900">{job.job_title}</h4>
       <h6 className="text-slate-500 text-xl">{job.company_name}</h6>
+
       <div className="flex items-center gap-8">
         <div className="border border-blue-600 py-3 px-6 rounded-lg text-gradients font-bold">
           {job.fulltime_or_parttime}
@@ -29,13 +30,12 @@ const JobCard = ({ job }) => {
           <p className="text-slate-500">Salary: {job.salary}</p>
         </div>
       </div>
-      {console.log()}
-      <Link
-        to={`/${job.id}`}
-        className="bg-gradients py-3 px-6 my-8  rounded text-white font-semibold text-lg"
-      >
-        View Details
-      </Link>
+        <Link
+          to={`/jobs/${job.id}`}
+          className="bg-gradients py-3 px-6 my-8 block w-fit  rounded text-white font-semibold text-lg"
+        >
+          View Details
+        </Link> 
     </div>
   );
 };

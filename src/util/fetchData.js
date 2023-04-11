@@ -17,7 +17,7 @@ const jobDetails = async ({ params }) => {
     const { jobs } = jobsData
     const singleJob = jobs.find(job => `${job.id}` === params.jobId)
     // console.log(singleJob,jobs, params.jobId);
-    return { singleJob }
+    return singleJob 
 }
 
 
