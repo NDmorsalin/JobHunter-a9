@@ -32,9 +32,12 @@ const Header = () => {
         ))}
       </div>
 
-      <button className="bg-gradients py-3 px-6 rounded text-white font-semibold text-lg">
+      <Link
+        to="/alljobs"
+        className="bg-gradients py-3 px-6 rounded text-white font-semibold text-lg"
+      >
         Star Applying
-      </button>
+      </Link>
     </div>
   );
 };

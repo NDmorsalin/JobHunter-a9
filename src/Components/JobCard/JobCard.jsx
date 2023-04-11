@@ -3,7 +3,7 @@ import locationIcon from "../../assets/Icons/Location Icon.png";
 import salaryIcon from "../../assets/Icons/Frame.png";
 import { Link } from "react-router-dom";
 
-const JobCard = ({ job }) => {
+const JobCard = ({ job, children }) => {
   return (
     <div className="border border-blue-500 rounded-xl shadow-md shadow-gray-700 p-8 gap-8 flex flex-col justify-between  ">
       <div className="max-w-[50%] p-4">
@@ -33,12 +33,15 @@ const JobCard = ({ job }) => {
             <p className="text-slate-500">Salary: {job.salary}</p>
           </div>
         </div>
-        <Link
-          to={`/jobs/${job.id}`}
-          className="bg-gradients py-3 px-6 my-8 block w-fit  rounded text-white font-semibold text-lg"
-        >
-          View Details
-        </Link>
+        <div className="flex items-center justify-between">
+          <Link
+            to={`/jobs/${job.id}`}
+            className="bg-gradients py-3 px-6 my-8 block w-fit  rounded text-white font-semibold text-lg"
+          >
+            View Details
+          </Link>
+          {children}
+        </div>
       </div>
     </div>
   );
