@@ -13,6 +13,7 @@ const Header = () => {
 
       <div className="flex item-center gap-4">
         {[
+          { path: "/", name: "Home" },
           { path: "statistics", name: "Statistics" },
           { path: "appliedjobs", name: "Applied Jobs" },
           { path: "blog", name: "Blog" },

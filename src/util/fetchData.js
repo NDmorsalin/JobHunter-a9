@@ -21,4 +21,4 @@ const jobDetails = async ({ params }) => {
 }
 
 
-export { homeData, jobDetails }
+export { homeData, jobDetails,fetchData }
