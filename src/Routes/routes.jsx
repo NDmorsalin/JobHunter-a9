@@ -10,6 +10,7 @@ import Statistic from "../Pages/Statistics/Statistic";
 import AppliedJob from "../Pages/ApplidedJob/AppliedJob";
 import Blog from "../Pages/Blog/Blog";
 import AllJobs from "../Pages/AllJobs/AllJobs";
+import NotFound from "../Pages/Error/NotFound";
 
 const routes = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const routes = createBrowserRouter([
       {
         path: "blog",
         element: <Blog />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       },
     ],
   },
