@@ -13,7 +13,7 @@ const Home = () => {
   const { jobsData, categories } = useLoaderData()
   const { jobCategories } = categories;
   const { jobs } = jobsData;
-  const [currentJobs,setCurrentJob] = useState(jobs.slice(0, 6))
+  const [currentJobs,setCurrentJob] = useState(jobs.slice(0, 4))
 
   console.log({ currentJobs });
   return (
