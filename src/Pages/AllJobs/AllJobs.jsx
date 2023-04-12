@@ -21,7 +21,7 @@ const AllJobs = () => {
           <JobCard key={job.id} job={job}>
             <button
               onClick={() => handelAppliedJob(job.id)}
-              className="bg-gradients py-3 px-6 rounded text-white font-semibold text-lg  mt-4"
+              className="bg-gradients py-3 px-6 rounded text-white font-semibold text-lg "
             >
               Apply Now
             </button>
