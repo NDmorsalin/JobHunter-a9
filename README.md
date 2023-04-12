@@ -5,9 +5,9 @@
 ### Features of this web site
 
 ## Nav bar
-1 When click on Logo go to home route path is '/'
-2 when click on Star Applying button redirect to '/allJobs' route.
-3 on middle navigation buttons redirect on their respective pages
+1.  When click on Logo go to home route path is '/'
+2.  when click on Star Applying button redirect to '/allJobs' route.
+3.  on middle navigation buttons redirect on their respective pages
 
 ## Home page
 
