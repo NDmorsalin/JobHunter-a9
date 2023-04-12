@@ -78,84 +78,87 @@ const Statistic = () => {
   return (
     <>
       <PagesHeader pageTitle="Statistic" />
-      <div className="my-8">
-        <PieChart width={800} height={400}>
-          <Pie
+      <div className="my-8 space-y-4">
+        <div className="w-full overflow-auto flex items-center justify-between p-4 rounded bg-slate-600">
+          <PieChart width={800} height={400}>
+            <Pie
+              data={data}
+              cx="50%"
+              cy="50%"
+              innerRadius={80}
+              outerRadius={90}
+              fill="#8884d8"
+              paddingAngle={5}
+              dataKey="totalMarks"
+            >
+              {data.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={COLORS[index % COLORS.length]}
+                />
+              ))}
+            </Pie>
+            <Pie
+              data={data}
+              cx="50%"
+              cy="50%"
+              startAngle={330}
+              endAngle={20}
+              innerRadius={60}
+              outerRadius={70}
+              fill="#8884d8"
+              paddingAngle={5}
+              dataKey="obtainMarks"
+            >
+              {data.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={COLORS[index % COLORS.length]}
+                />
+              ))}
+            </Pie>
+
+            <Tooltip />
+          </PieChart>
+        </div>
+        <div className="w-full overflow-auto flex items-center justify-between p-4 rounded bg-slate-600">
+          <ComposedChart
+            width={800}
+            height={400}
             data={data}
-            cx="50%"
-            cy="50%"
-            innerRadius={80}  
-            outerRadius={90}
-            fill="#8884d8"
-            paddingAngle={5}
-            dataKey="totalMarks"
+            margin={{
+              top: 20,
+              right: 20,
+              bottom: 20,
+              left: 20,
+            }}
           >
-            {data.map((entry, index) => (
-              <Cell
-                key={`cell-${index}`}
-                fill={COLORS[index % COLORS.length]}
-              />
-            ))}
-          </Pie>
-          <Pie
-            data={data}
-            cx="50%"
-            cy="50%"
-            startAngle={330}
-            endAngle={20}
-            innerRadius={60}
-            outerRadius={70}
-            fill="#8884d8"
-            paddingAngle={5}
-            dataKey="obtainMarks"
-          >
-            {data.map((entry, index) => (
-              <Cell
-                key={`cell-${index}`}
-                fill={COLORS[index % COLORS.length]}
-              />
-            ))}
-          </Pie>
+            <defs>
+              <linearGradient id="totalMarks" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="15%" stopColor="#9873FF" stopOpacity={0.8} />
+                <stop offset="95%" stopColor="#82ca9d" stopOpacity={0.4} />
+              </linearGradient>
+            </defs>
+            <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Area
+              type="monotone"
+              dataKey="totalMarks"
+              fill="url(#totalMarks)"
+              stroke="#8884d8"
+            />
 
-          <Tooltip />
-        </PieChart>
-
-        <ComposedChart
-          width={800}
-          height={400}
-          data={data}
-          margin={{
-            top: 20,
-            right: 20,
-            bottom: 20,
-            left: 20,
-          }}
-        >
-          <defs>
-            <linearGradient id="totalMarks" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="15%" stopColor="#9873FF" stopOpacity={0.8} />
-              <stop offset="95%" stopColor="#82ca9d" stopOpacity={0.4} />
-            </linearGradient>
-          </defs>
-          <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Area
-            type="monotone"
-            dataKey="totalMarks"
-            fill="url(#totalMarks)"
-            stroke="#8884d8"
-          />
-
-          <Line
-            fill="url(#obtainMarks)"
-            type="monotone"
-            dataKey="obtainMarks"
-            stroke="#ff7300"
-          />
-        </ComposedChart>
+            <Line
+              fill="url(#obtainMarks)"
+              type="monotone"
+              dataKey="obtainMarks"
+              stroke="#ff7300"
+            />
+          </ComposedChart>
+        </div>
       </div>
     </>
   );

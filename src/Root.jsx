@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom";
 const Root = () => {
   return (
     <>
-      <div className="container px-6 sm:px-12 md:px-20 mx-auto">
+      <div className="container px-4  lg:px-20 mx-auto">
         {/* Header start */}
         <Header />
         {/* Header end */}

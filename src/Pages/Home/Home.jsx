@@ -24,7 +24,7 @@ const Home = () => {
         title="Job Category List"
         subtitle="Explore thousands of job opportunities with all the information you need. Its your future"
       >
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 ">
           {jobCategories.map((ctg) => (
             <JobCategory key={ctg.title} category={ctg} />
           ))}

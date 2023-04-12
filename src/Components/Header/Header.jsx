@@ -1,17 +1,17 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
-const Header = () => {
+const   Header = () => {
   return (
     <div className="flex items-center justify-between py-4">
       {/* logo start */}
-      <Link to="/" className="text-5xl font-bold text-slate-800">
+      <Link to="/" className="text-3xl sm:text-5xl font-bold text-slate-800">
         Job
         <span className="font-extrabold text-gradients">Hunter</span>
       </Link>
       {/* logo end */}
 
-      <div className="flex item-center gap-4">
+      <div className="hidden  sm:flex item-center gap-4">
         {[
           { path: "/", name: "Home" },
           { path: "statistics", name: "Statistics" },
@@ -34,7 +34,7 @@ const Header = () => {
 
       <Link
         to="/alljobs"
-        className="bg-gradients py-3 px-6 rounded text-white font-semibold text-lg"
+        className="hidden sm:block bg-gradients py-3 px-6 rounded text-white font-semibold text-lg"
       >
         Star Applying
       </Link>

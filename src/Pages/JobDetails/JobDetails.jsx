@@ -22,7 +22,7 @@ const JobDetails = () => {
   return (
     <>
       <PagesHeader pageTitle="Job Details" />
-      <div className="flex gap-5 my-8">
+      <div className="flex flex-col-reverse items-center sm:items-start sm:flex-row gap-5 my-8">
         <div className="flex-1  space-y-6">
           <p className="text-slate-700">
             <span className="font-bold text-slate-900">Job Description :</span>

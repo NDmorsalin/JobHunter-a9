@@ -5,9 +5,9 @@ import salaryIcon from "../../assets/Icons/Frame.png";
 
 const AppliedJobsCard = ({ job }) => {
   return (
-    <div className="flex items-center gap-10 p-4 border border-blue-600 rounded-md ">
+    <div className="flex flex-wrap justify-center items-center  gap-x-6 sm:gap-10 p-4 border border-blue-600 rounded-md ">
       <img src={job.company_logo} alt="company logo" className="max-w-[5rem]" />
-      <div className="flex-1 space-y-2">
+      <div className="flex-1  space-y-2">
         <h4 className="text-xl font-bold text-slate-900">{job.job_title}</h4>
         <h6 className="text-slate-500 text-xl">{job.company_name}</h6>
         <div className="flex items-center gap-4">
@@ -18,7 +18,7 @@ const AppliedJobsCard = ({ job }) => {
             {job.remote_or_onsite}
           </div>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex gap-4 flex-col sm:flex-row">
           <div className="flex items-center gap-2">
             <img src={locationIcon} alt="" className="" />
             <p className="text-slate-500">{job.location}</p>
@@ -32,7 +32,7 @@ const AppliedJobsCard = ({ job }) => {
       <div className="w-fit">
         <Link
           to={`/jobs/${job.id}`}
-          className="bg-gradients py-3 px-6 my-8 block w-fit  rounded text-white font-semibold text-lg"
+          className="bg-gradients py-3 px-6 my-4 sm:my-8 block w-fit  rounded text-white font-semibold text-lg"
         >
           View Details
         </Link>

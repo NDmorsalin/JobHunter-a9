@@ -3,9 +3,9 @@ import heroImg from "../../assets/All Images/hero.png";
 
 const Hero = () => {
   return (
-    <div className="flex items-center gap-16 my-8">
+    <div className="flex items-center gap-16 my-8 flex-col-reverse sm:flex-row">
       <div className="flex-1 flex flex-col gap-8">
-        <h2 className="text-6xl text-slate-800 font-bold">
+        <h2 className="text-4xl sm:text-6xl text-slate-800 font-bold">
           One Step Closer To Your{" "}
           <span className="text-gradients">Dream Job</span>
         </h2>
