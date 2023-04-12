@@ -31,7 +31,7 @@ const AppliedJobsCard = ({ job }) => {
       </div>
       <div className="w-fit">
         <Link
-          to={`/jobs/${job.id}`}
+          to={`/job/${job.id}`}
           className="bg-gradients py-3 px-6 my-4 sm:my-8 block w-fit  rounded text-white font-semibold text-lg"
         >
           View Details

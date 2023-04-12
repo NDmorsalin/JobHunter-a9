@@ -42,3 +42,9 @@ and if you click on the **Apply now** button then this jobs item is stored on lo
 in this page has only one **Apply now** button then this jobs item is stored on local storage
 
 > If You click on the **Apply now** button again after first time clicked then you will see a Tost and this Job will not be saved again on local storage
+
+
+## Mobile devices
+
+When click on right side top toggle button then show nav bar
+if you click on transparent site then close nav bar.
