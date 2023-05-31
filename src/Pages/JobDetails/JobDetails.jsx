@@ -1,4 +1,3 @@
-import React from "react";
 import { useLoaderData } from "react-router-dom";
 
 import locationIcon from "../../assets/Icons/Location Icon.png";
@@ -17,6 +16,8 @@ const JobDetails = () => {
     const isAdded = addJobIdOnLS(jobId);
     if (isAdded) {
       toast("Job already added please see on your applied list");
+    } else {
+      toast.success("Job added successfully");
     }
   };
   return (

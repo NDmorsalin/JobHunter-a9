@@ -10,7 +10,9 @@ const AllJobs = () => {
   const handelAppliedJob = (jobId) => {
     const isAdded = addJobIdOnLS(jobId);
     if (isAdded) {
-      toast("Job already added please see on your applied list");
+      toast.error("Job already added please see on your applied list");
+    }else{
+      toast.success("Job added successfully");
     }
   };
   return (

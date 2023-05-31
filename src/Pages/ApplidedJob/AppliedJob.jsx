@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import PagesHeader from "../../Components/PagesHeader/PagesHeader";
 import useGetAppliedJobs from "../../hooks/useGetAppliedJobs";
 import AppliedJobsCard from "../../Components/AppliedJobsCard/AppliedJobsCard";
+import { deleteJobIdOnLS, getJobIdLS } from "../../util/appliedJobCRUDOnLS";
+import { fetchData } from "../../util/fetchData";
 
 const AppliedJob = () => {
   const storedJob = useGetAppliedJobs();
@@ -11,16 +13,44 @@ const AppliedJob = () => {
   useEffect(() => {
     setAppliedJobs(storedJob);
   }, [storedJob]);
-
+  // console.log(storedJob);
   const handleFiltering = (option) => {
-    if (option) {
-      const filtered = storedJob.filter(
-        (job) => job.remote_or_onsite === option
-      );
-      setAppliedJobs(filtered);
-    } else {
-      setAppliedJobs(storedJob);
-    }
+    const storedJobsIds = getJobIdLS();
+    const fetching = async () => {
+      const allJobs = [];
+      const fetchedJobs = await fetchData("/jobs.json");
+      const { jobs } = fetchedJobs;
+      storedJobsIds.forEach((jobId) => {
+        const job = jobs.find((job) => job.id === jobId);
+        allJobs.push(job);
+      });
+      if (option) {
+        const filtered = allJobs.filter(
+          (job) => job.remote_or_onsite === option
+        );
+        setAppliedJobs(filtered);
+      } else {
+        setAppliedJobs(allJobs);
+      }
+    };
+    fetching();
+  };
+
+  const deleteAppliedJob = (jobId) => {
+    deleteJobIdOnLS(jobId);
+    const storedJobsIds = getJobIdLS();
+    const fetching = async () => {
+      const allJobs = [];
+      const fetchedJobs = await fetchData("/jobs.json");
+      const { jobs } = fetchedJobs;
+      storedJobsIds.forEach((jobId) => {
+        const job = jobs.find((job) => job.id === jobId);
+        allJobs.push(job);
+      });
+
+      setAppliedJobs(allJobs);
+    };
+    fetching();
   };
   return (
     <>
@@ -40,9 +70,19 @@ const AppliedJob = () => {
         </select>
       </div>
       <div className="my-8 space-y-4">
-        {appliedJobs.map((job) => (
-          <AppliedJobsCard key={job.id} job={job} />
-        ))}
+        {appliedJobs.length > 0 ? (
+          appliedJobs.map((job) => (
+            <AppliedJobsCard
+              deleteAppliedJob={deleteAppliedJob}
+              key={job.id}
+              job={job}
+            />
+          ))
+        ) : (
+          <h1 className="text-2xl text-center text-slate-900">
+            No Applied Job Found
+          </h1>
+        )}
       </div>
     </>
   );

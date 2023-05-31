@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import locationIcon from "../../assets/Icons/Location Icon.png";
 import salaryIcon from "../../assets/Icons/Frame.png";
 
-const AppliedJobsCard = ({ job }) => {
+const AppliedJobsCard = ({ job,deleteAppliedJob }) => {
   return (
     <div className="flex flex-wrap justify-center items-center  gap-x-6 sm:gap-10 p-4 border border-blue-600 rounded-md ">
       <img src={job.company_logo} alt="company logo" className="max-w-[5rem]" />
@@ -29,7 +29,8 @@ const AppliedJobsCard = ({ job }) => {
           </div>
         </div>
       </div>
-      <div className="w-fit">
+      <div className="flex items-center gap-4">
+        <button onClick={()=>deleteAppliedJob(job.id)} className="bg-orange-700 py-3 px-6 my-4 sm:my-8 block w-fit  rounded text-white font-semibold text-lg"> Remove</button>
         <Link
           to={`/job/${job.id}`}
           className="bg-gradients py-3 px-6 my-4 sm:my-8 block w-fit  rounded text-white font-semibold text-lg"

@@ -23,5 +23,15 @@ const addJobIdOnLS = (jobId) => {
 
   return isAdded;
 };
+const deleteJobIdOnLS = (jobId) => {
+  const jobsId = getJobIdLS();
 
-export { addJobIdOnLS, getJobIdLS };
+  const isAdded = jobsId.includes(jobId);
+  if(isAdded){
+    const newJobsId = jobsId.filter((id) => id !== jobId);
+    localStorage.setItem("jobsId", JSON.stringify(newJobsId));
+  }
+  return isAdded;
+}
+
+export { addJobIdOnLS, getJobIdLS,deleteJobIdOnLS };
